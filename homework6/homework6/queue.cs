@@ -8,15 +8,10 @@ namespace homework6
 {
     class MyQueue: Buffer
     {
-
-
-       private int[] queue;
-       private int tail, head;
-
-
+        private int tail, head;
+        
         public MyQueue()
         {
-            queue = new int[5];
             tail = 0;
             head = 0;
          }
@@ -31,15 +26,15 @@ namespace homework6
                 Console.ReadLine();
                 Environment.Exit(0);
             }
-            if (tail < queue.Length - 1)
+            if (tail < itemsList.Length - 1)
             {
-                queue[tail] = z;
+                itemsList[tail] = z;
                 tail++;
 
             }
             else
             {
-                queue[tail] = z;
+                itemsList[tail] = z;
                 tail = 0;
             }
 
@@ -48,15 +43,15 @@ namespace homework6
         public int Dequeue()
         {
             int value;
-            if (head < queue.Length - 1)
+            if (head < itemsList.Length - 1)
             {
-                value = queue[head];
+                value = itemsList[head];
                 head++;
                 counter--;
                 return value;
             }
 
-            value = queue[head];
+            value = itemsList[head];
             head = 0;
             counter--;
             return value;

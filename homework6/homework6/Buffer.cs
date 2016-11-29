@@ -8,17 +8,17 @@ namespace homework6
 {
     class Buffer
     {
-        private int[] queue;
+        protected int[] itemsList;
         protected int counter;
 
         public Buffer()
         {
-            queue = new int[5];
+            itemsList = new int[5];
         }
 
          public virtual bool IsFull()
         {
-            if (counter > queue.Length)
+            if (counter > itemsList.Length)
             {
                 return true;
             }
