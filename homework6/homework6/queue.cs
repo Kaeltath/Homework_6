@@ -11,7 +11,7 @@ namespace homework6
 
 
        private int[] queue;
-       private int tail, head, counter;
+       private int tail, head;
 
 
         public MyQueue()
@@ -19,19 +19,12 @@ namespace homework6
             queue = new int[5];
             tail = 0;
             head = 0;
-            counter = 0;
-        }
+         }
 
-        override public int Counter
-        {
-            get { return counter; }
-            set { counter = value; }
-            
-        }
 
         public void Enqueue(int z)
         {
-            Counter++;
+            counter++;
             if (IsFull())
             {
                 Console.WriteLine(" item overlaped...");
@@ -59,13 +52,13 @@ namespace homework6
             {
                 value = queue[head];
                 head++;
-                Counter--;
+                counter--;
                 return value;
             }
 
             value = queue[head];
             head = 0;
-            Counter--;
+            counter--;
             return value;
 
         }

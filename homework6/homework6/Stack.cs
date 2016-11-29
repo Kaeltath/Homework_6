@@ -10,18 +10,15 @@ namespace homework6
 {
     class MyStack: Buffer
     {
-        //private int counter;
         private int[] stack;
 
         
         public MyStack()
         {
-            Counter = 0;
             stack = new int[5];
         }
 
-        public int Counter {get;set;}
-
+        
         public void Push(int topush)
         {
             if (IsFull())
@@ -30,39 +27,30 @@ namespace homework6
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-            stack[Counter] = topush;
-            Counter++;
+            stack[counter] = topush;
+            counter++;
         }
 
         public int Pop()
         {
-            Counter--;
-            return stack[Counter];
+            counter--;
+            return stack[counter];
 
+        }
+        
+        public int Peek()
+        {
+            return stack[counter - 1];
         }
 
         public override bool IsFull()
         {
-            if (Counter == stack.Length)
+            if (counter == stack.Length)
             {
                 return true;
             }
             return false;
 
-        }
-
-        public override bool IsEmpty()
-        {
-            if (Counter == 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public int Peek()
-        {
-            return stack[Counter - 1];
         }
     }
 }

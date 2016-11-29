@@ -9,18 +9,16 @@ namespace homework6
     class Buffer
     {
         private int[] queue;
-        
+        protected int counter;
+
         public Buffer()
         {
             queue = new int[5];
         }
 
-        public virtual int Counter { set ; get; }
-
-
-        public virtual bool IsFull()
+         public virtual bool IsFull()
         {
-            if (Counter > queue.Length)
+            if (counter > queue.Length)
             {
                 return true;
             }
@@ -31,7 +29,7 @@ namespace homework6
 
         public virtual bool IsEmpty()
         {
-            if (Counter == 0)
+            if (counter == 0)
             {
                 return true;
             }
