@@ -10,8 +10,8 @@ namespace homework6
     {
 
 
-        static int[] queue;
-        static int tail, head, counter;
+       private int[] queue;
+       private int tail, head, counter;
 
 
         public MyQueue()
@@ -22,10 +22,17 @@ namespace homework6
             counter = 0;
         }
 
+        override public int Counter
+        {
+            get { return counter; }
+            set { counter = value; }
+            
+        }
+
         public void Enqueue(int z)
         {
-            counter++;
-            if (counter > queue.Length)
+            Counter++;
+            if (IsFull())
             {
                 Console.WriteLine(" item overlaped...");
                 Console.ReadLine();
@@ -52,38 +59,15 @@ namespace homework6
             {
                 value = queue[head];
                 head++;
-                counter--;
+                Counter--;
                 return value;
             }
 
             value = queue[head];
             head = 0;
-            counter--;
+            Counter--;
             return value;
 
         }
-
-        public override bool IsFull()
-        {
-            if (counter > queue.Length - 1)
-            {
-                return true;
-            }
-
-            return false;
-
-        }
-
-        public override bool IsEmpty()
-        {
-            if (counter == 0)
-            {
-                return true;
-            }
-
-            return false;
-
-        }
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -9,16 +10,17 @@ namespace homework6
 {
     class MyStack: Buffer
     {
-        private int index;
+        //private int counter;
         private int[] stack;
 
+        
         public MyStack()
         {
-            index = 0;
+            Counter = 0;
             stack = new int[5];
         }
 
-
+        public int Counter {get;set;}
 
         public void Push(int topush)
         {
@@ -28,20 +30,20 @@ namespace homework6
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-            stack[index] = topush;
-            index++;
+            stack[Counter] = topush;
+            Counter++;
         }
 
         public int Pop()
         {
-            index--;
-            return stack[index];
+            Counter--;
+            return stack[Counter];
 
         }
 
         public override bool IsFull()
         {
-            if (index == stack.Length)
+            if (Counter == stack.Length)
             {
                 return true;
             }
@@ -51,7 +53,7 @@ namespace homework6
 
         public override bool IsEmpty()
         {
-            if (index == 0)
+            if (Counter == 0)
             {
                 return true;
             }
@@ -60,7 +62,7 @@ namespace homework6
 
         public int Peek()
         {
-            return stack[index - 1];
+            return stack[Counter - 1];
         }
     }
 }
